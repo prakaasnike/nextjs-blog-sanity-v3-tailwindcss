@@ -1,14 +1,18 @@
-import {defineConfig} from 'sanity'
-import {deskTool} from 'sanity/desk'
-import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemas'
+import { defineConfig } from 'sanity'
+import { deskTool } from 'sanity/desk'
+import { visionTool } from '@sanity/vision'
+import { schemaTypes } from './schemas'
+
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
 
 export default defineConfig({
+  basePath: `/studio`,
   name: 'default',
   title: 'medium-clone-v3',
 
-  projectId: '6qqaylzd',
-  dataset: 'production',
+  projectId: `${projectId}`,
+  dataset: `${dataset}`,
 
   plugins: [deskTool(), visionTool()],
 
